@@ -1,2 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: rgba(0, 187, 255, 0.207);
+}
