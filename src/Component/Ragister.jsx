@@ -1,8 +1,11 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router";
 import { auth } from "../../firebase.config";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthContext/AuthContext";
 
 const Ragister = () => {
+  const { createUserByEmail } = useContext(AuthContext);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -10,10 +13,9 @@ const Ragister = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    createUserWithEmailAndPassword(auth, email, password).then((res) => {
-      res.user;
-      console.log(res.user);
-    });
+    createUserByEmail(email, password)
+      .then()
+      .catch((error) => console.error(error));
 
     console.log(name, email, password);
   };
