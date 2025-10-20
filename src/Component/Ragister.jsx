@@ -1,5 +1,4 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import React from "react";
 import { Link } from "react-router";
 import { auth } from "../../firebase.config";
 
@@ -18,6 +17,7 @@ const Ragister = () => {
 
     console.log(name, email, password);
   };
+
   return (
     <div className="card mx-auto mt-10 bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
       <div className="card-body">
