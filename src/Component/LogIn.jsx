@@ -1,10 +1,20 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../Context/AuthContext/AuthContext";
 
 const LogIn = () => {
+  const { signInByEmail } = use(AuthContext);
   const handleLogIn = (e) => {
     e.preventDefault();
-    console.log(`logged in`);
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signInByEmail(email, password)
+      .then((res) => {
+        console.log(res.user);
+      })
+      .catch((err) => console.log(err));
+    // console.log(`logged in`);
   };
   return (
     <div className="card mx-auto mt-10 bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
